@@ -20,6 +20,7 @@ module.exports =
     ratioNoHoverEntry      = packageName + '.treeView.ratioNoHover'
     ratioHoverEntry        = packageName + '.treeView.ratioHover'
     tabHeightEntry         = packageName + '.tabs.tabHeight'
+    patchFileIconsEntry    = packageName + '.others.patchFileIcons'
 
     isHexCode = (hexCode) ->
       return /^#(?:[0-9a-fA-F]{3}){1,2}$/.test hexCode
@@ -36,6 +37,7 @@ module.exports =
                          ratioNoHover,
                          ratioHover,
                          tabHeight,
+                         patchFileIcons,
                          options) ->
       if  isHexCode(themeColor)       and
           isHexCode(textColor)        and
@@ -43,7 +45,7 @@ module.exports =
           isHexCode(indentGuideColor) and
           isHexCode(invisiblesColor)  and
           isHexCode(gutterColor)
-            custom =
+            customSettings =
               '@theme-color: '                 + themeColor        +
               ';\n@text-color: '               + textColor         +
               ';\n@inactive-tab-color: '       + inactiveTabColor  +
@@ -57,7 +59,11 @@ module.exports =
               ';\n@nohover-ratio: '            + ratioNoHover      +
               ';\n@hover-ratio: '              + ratioHover        +
               ';\n'
-            fs.writeFile "#{__dirname}/../styles/custom-settings.less", custom, 'utf8', () ->
+            customImports = ''
+            if patchFileIcons
+                customImports += '@import "file-icons";\n'
+            fs.writeFile "#{__dirname}/../styles/custom-imports.less",  customImports,  'utf8', () -> return
+            fs.writeFile "#{__dirname}/../styles/custom-settings.less", customSettings, 'utf8', () ->
               if not (options and options.noReload)
                 themePack = atom.packages.getLoadedPackage packageName
                 if themePack
@@ -83,6 +89,7 @@ module.exports =
         ratioNoHover      = atom.config.get ratioNoHoverEntry
         ratioHover        = atom.config.get ratioHoverEntry
         tabHeight         = atom.config.get tabHeightEntry
+        patchFileIcons    = atom.config.get patchFileIconsEntry
         writeCustomStyles themeColor,
                           textColor,
                           inactiveTabColor,
@@ -94,7 +101,8 @@ module.exports =
                           lineHeight,
                           ratioNoHover,
                           ratioHover,
-                          tabHeight
+                          tabHeight,
+                          patchFileIcons
 
     atom.config.onDidChange themeColorEntry,        saveCustomSettings
     atom.config.onDidChange textColorEntry,         saveCustomSettings
@@ -109,6 +117,7 @@ module.exports =
     atom.config.onDidChange ratioNoHoverEntry,      saveCustomSettings
     atom.config.onDidChange ratioHoverEntry,        saveCustomSettings
     atom.config.onDidChange tabHeightEntry,         saveCustomSettings
+    atom.config.onDidChange patchFileIconsEntry,    saveCustomSettings
 
     hideInactiveFiles = (hideStatus) ->
       if hideStatus == true

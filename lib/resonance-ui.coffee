@@ -84,6 +84,17 @@ module.exports =
           type: 'integer'
           default: 28
 
+    others:
+      title: 'Others'
+      type: 'object'
+      properties:
+        patchFileIcons:
+          title: 'Patch file-icons package'
+          description: 'Be careful: it will break the theme if file-icons package is not previously installed.\n' +
+                       'In such a case you have to remove \'@import "file-icons";\' line from styles/custom-settings.less'
+          type: 'boolean'
+          default: false
+
   activate: (state) ->
     markOpen = (textEditor) =>
       filePath = textEditor.getPath()

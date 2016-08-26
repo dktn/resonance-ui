@@ -1,3 +1,7 @@
+## 0.7.0
+* Fix broken package when file-icons package is not present
+* Option to enable file-icons patch (compact icons)
+
 ## 0.6.0
 * Updating active files on tree view after changing projects
 * Compact common icons from file-icons package
