@@ -94,7 +94,7 @@ module.exports =
 
         removeOpen = (textEditor) =>
             filePath = textEditor.getPath()
-            entry = @treeView.entryForPath(filePath)
+            entry = @treeView.entryForPath filePath
             if entry
                 entry.classList.remove 'open'
             else
@@ -114,14 +114,19 @@ module.exports =
         treeListRemoveOpen = (event) =>
             console.log "treeListRemoveOpen", @treeView
             if @treeView and event.item instanceof TextEditor
-                removeOpen event.item
+                closingEditor = event.item
+                closingFilePath = closingEditor.getPath()
+                editors = atom.workspace.getTextEditors()
+                for i in [0...editors.length]
+                    if editors[i].getPath() == closingFilePath
+                        return
+                removeOpen closingEditor
 
         treeListUpdateOpen = () =>
-            editors = atom.workspace.getTextEditors()
-            for i in [0...editors.length]
-                editor = editors[i]
-                if @treeView
-                    filePath = editor.getPath()
+            if @treeView
+                editors = atom.workspace.getTextEditors()
+                for i in [0...editors.length]
+                    filePath = editors[i].getPath()
                     entry = @treeView.entryForPath filePath
                     if entry
                         entry.classList.add 'open'
