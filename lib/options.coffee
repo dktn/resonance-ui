@@ -13,7 +13,7 @@ module.exports =
         indentGuideColorEntry  = packageName + '.colors.indentGuide'
         invisiblesColorEntry   = packageName + '.colors.invisibles'
         gutterColorEntry       = packageName + '.colors.gutter'
-        gutterCursorColorEntry = packageName + '.colors.gutterCursor'
+        gutterCursorEmphEntry  = packageName + '.colors.gutterCursorEmph'
         fontSizeEntry          = packageName + '.treeView.fontSize'
         lineHeightEntry        = packageName + '.treeView.lineHeight'
         hideInactiveFilesEntry = packageName + '.treeView.hideInactiveFiles'
@@ -30,7 +30,7 @@ module.exports =
                             indentGuideColor,
                             invisiblesColor,
                             gutterColor,
-                            gutterCursorColor,
+                            gutterCursorEmph,
                             fontSize,
                             lineHeight,
                             ratioNoHover,
@@ -42,8 +42,7 @@ module.exports =
                 isHexCode(inactiveTabColor) and
                 isHexCode(indentGuideColor) and
                 isHexCode(invisiblesColor)  and
-                isHexCode(gutterColor)      and
-                isHexCode(gutterCursorColor)
+                isHexCode(gutterColor)
                     custom =
                         '@theme-color: '                 + themeColor        +
                         ';\n@text-color: '               + textColor         +
@@ -51,10 +50,10 @@ module.exports =
                         ';\n@indent-guide-color: '       + indentGuideColor  +
                         ';\n@invisibles-color: '         + invisiblesColor   +
                         ';\n@gutter-text-color: '        + gutterColor       +
-                        ';\n@gutter-text-cursor-color: ' + gutterCursorColor +
-                        ';\n@tree-view-font-size: '      + fontSize   + 'px' +
-                        ';\n@tree-view-line-height: '    + lineHeight + 'px' +
-                        ';\n@tab-height: '               + tabHeight  + 'px' +
+                        ';\n@gutter-cursor-emph: '       + gutterCursorEmph  + '%'  +
+                        ';\n@tree-view-font-size: '      + fontSize          + 'px' +
+                        ';\n@tree-view-line-height: '    + lineHeight        + 'px' +
+                        ';\n@tab-height: '               + tabHeight         + 'px' +
                         ';\n@nohover-ratio: '            + ratioNoHover      +
                         ';\n@hover-ratio: '              + ratioHover        +
                         ';\n'
@@ -78,7 +77,7 @@ module.exports =
                 indentGuideColor  = atom.config.get indentGuideColorEntry
                 invisiblesColor   = atom.config.get invisiblesColorEntry
                 gutterColor       = atom.config.get gutterColorEntry
-                gutterCursorColor = atom.config.get gutterCursorColorEntry
+                gutterCursorEmph  = atom.config.get gutterCursorEmphEntry
                 fontSize          = atom.config.get fontSizeEntry
                 lineHeight        = atom.config.get lineHeightEntry
                 ratioNoHover      = atom.config.get ratioNoHoverEntry
@@ -90,7 +89,7 @@ module.exports =
                                   indentGuideColor,
                                   invisiblesColor,
                                   gutterColor,
-                                  gutterCursorColor,
+                                  gutterCursorEmph,
                                   fontSize,
                                   lineHeight,
                                   ratioNoHover,
@@ -103,7 +102,7 @@ module.exports =
         atom.config.onDidChange indentGuideColorEntry,  saveCustomSettings
         atom.config.onDidChange invisiblesColorEntry,   saveCustomSettings
         atom.config.onDidChange gutterColorEntry,       saveCustomSettings
-        atom.config.onDidChange gutterCursorColorEntry, saveCustomSettings
+        atom.config.onDidChange gutterCursorEmphEntry,  saveCustomSettings
         atom.config.onDidChange fontSizeEntry,          saveCustomSettings
         atom.config.onDidChange lineHeightEntry,        saveCustomSettings
         atom.config.onDidChange hideInactiveFilesEntry, saveCustomSettings

@@ -37,10 +37,12 @@ module.exports =
                     title: 'Gutter text color'
                     type: 'string'
                     default: '#4d4b46'
-                gutterCursor:
-                    title: 'Gutter text color for cursor'
-                    type: 'string'
-                    default: '#625c51'
+                gutterCursorEmph:
+                    title: 'Gutter cursor highlight in %'
+                    type: 'integer'
+                    minimum: 0
+                    maximum: 100
+                    default: 12
 
         treeView:
             title: 'Tree View'

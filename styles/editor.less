@@ -1,6 +1,5 @@
 @import 'custom-settings';
 
-
 atom-text-editor[mini],
 atom-text-editor[mini]::shadow {
   background-color: @base-input-color;
@@ -78,31 +77,35 @@ atom-text-editor::shadow,
       padding-right: 0;
 
       &.git-line-added {
-        font-weight: 600;
         color: @gutter-color-added;
         border-left-color: @gutter-color-added;
       }
       &.git-line-modified {
-        font-weight: 600;
         color: @gutter-color-modified;
         border-left-color: @gutter-color-modified;
       }
       &.git-line-removed {
-        font-weight: 600;
         color: @gutter-color-removed;
         border-left-color: @gutter-color-removed;
       }
 
       &.cursor-line {
-        font-weight: 600;
         background-color: transparent;
         color: @gutter-text-color-selected;
       }
 
       &.cursor-line-no-selection {
         background-color: transparent;
-        color: @gutter-text-cursor-color;
-        // color: @text-color-dark-dktn;
+        color: lighten(@gutter-text-color, @gutter-cursor-emph);
+        &.git-line-added {
+          color: lighten(@gutter-color-added, @gutter-cursor-emph);
+        }
+        &.git-line-modified {
+          color: lighten(@gutter-color-modified, @gutter-cursor-emph);
+        }
+        &.git-line-removed {
+          color: lighten(@gutter-color-removed, @gutter-cursor-emph);
+        }
       }
 
       .icon-right {
