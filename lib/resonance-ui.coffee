@@ -91,7 +91,7 @@ module.exports =
       if entry
         entry.classList.add 'open'
       else
-        console.log "Add: Not found entry for ", filePath
+        console.log "Resonance-UI: Add: Not found entry for ", filePath
 
     removeOpen = (textEditor) =>
       filePath = textEditor.getPath()
@@ -99,21 +99,21 @@ module.exports =
       if entry
         entry.classList.remove 'open'
       else
-        console.log "Remove: Not found entry for ", filePath
+        console.log "Resonance-UI: Remove: Not found entry for ", filePath
 
     treeListAddOpen = (event) =>
-      console.log "treeListAddOpen", @treeView
+      console.log "Resonance-UI: treeListAddOpen", @treeView
       if @treeView
         markOpen event.textEditor
 
     treeListAddOpenForCurrent = (event) =>
       textEditor = atom.workspace.getActiveTextEditor()
-      console.log "treeListAddOpenForCurrent", @treeView
+      console.log "Resonance-UI: treeListAddOpenForCurrent", @treeView
       if textEditor and @treeView
         markOpen textEditor
 
     treeListRemoveOpen = (event) =>
-      console.log "treeListRemoveOpen", @treeView
+      console.log "Resonance-UI: treeListRemoveOpen", @treeView
       if @treeView and event.item instanceof TextEditor
         closingEditor = event.item
         closingFilePath = closingEditor.getPath()
@@ -139,6 +139,7 @@ module.exports =
     @subscriptions.add atom.project.onDidChangePaths treeListUpdateOpen
 
     atom.packages.activatePackage('tree-view').then (treeViewPkg) =>
+      console.log "Resonance-UI: activatePackage tree-view"
       @treeView = treeViewPkg.mainModule.createView()
       treeListUpdateOpen()
       @treeView.on 'click', '.directory', () ->
