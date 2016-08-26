@@ -1,5 +1,6 @@
 ## 0.6.0
 * Updating active files on tree view after changing projects
+* Compact common icons from file-icons package
 
 ## 0.5.0
 * Gutter cursor highlight instead of color - better for git statuses
