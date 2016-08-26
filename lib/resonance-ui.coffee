@@ -116,6 +116,16 @@ module.exports =
             if @treeView and event.item instanceof TextEditor
                 removeOpen event.item
 
+        treeListUpdateOpen = () =>
+            editors = atom.workspace.getTextEditors()
+            for i in [0...editors.length]
+                editor = editors[i]
+                if @treeView
+                    filePath = editor.getPath()
+                    entry = @treeView.entryForPath filePath
+                    if entry
+                        entry.classList.add 'open'
+
         @subscriptions = new CompositeDisposable
         @subscriptions.add atom.workspace.onDidAddTextEditor treeListAddOpen
         @subscriptions.add atom.workspace.onDidDestroyPaneItem treeListRemoveOpen
@@ -123,15 +133,6 @@ module.exports =
 
         atom.packages.activatePackage('tree-view').then (treeViewPkg) =>
             @treeView = treeViewPkg.mainModule.createView()
-            treeListUpdateOpen = () =>
-                items = atom.workspace.getPaneItems()
-                for i in [0...items.length]
-                    item = items[i]
-                    if item instanceof TextEditor and @treeView
-                        filePath = item.getPath()
-                        entry = @treeView.entryForPath filePath
-                        if entry
-                            entry.classList.add 'open'
             treeListUpdateOpen()
             @treeView.on 'click', '.directory', () ->
                 treeListUpdateOpen()
