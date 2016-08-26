@@ -11,6 +11,7 @@ Best with [resonance-syntax](https://github.com/dktn/resonance-syntax).
 * Optionally hidden unused files keeping visible git statuses
 * Auto-reloading on settings change
 * Changed default Haskell icon color
+* Optional patch for file-icons package making icons more compact
 
 ![](https://raw.githubusercontent.com/dktn/resonance-ui/master/resonance-theme.png)
 
