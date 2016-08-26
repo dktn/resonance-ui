@@ -103,20 +103,17 @@ module.exports =
         treeListAddOpen = (event) =>
             console.log "treeListAddOpen", @treeView
             if @treeView
-                console.log "treeListAddOpen markOpen"
                 markOpen event.textEditor
 
         treeListAddOpenForCurrent = (event) =>
             textEditor = atom.workspace.getActiveTextEditor()
             console.log "treeListAddOpenForCurrent", @treeView
             if textEditor and @treeView
-                console.log "treeListAddOpenForCurrent markOpen"
                 markOpen textEditor
 
         treeListRemoveOpen = (event) =>
             console.log "treeListRemoveOpen", @treeView
             if @treeView and event.item instanceof TextEditor
-                console.log "treeListRemoveOpen removeOpen"
                 removeOpen event.item
 
         @subscriptions = new CompositeDisposable
