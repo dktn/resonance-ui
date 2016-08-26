@@ -1,0 +1,59 @@
+@import 'custom-settings';
+
+@entry-color: @text-color;
+
+.hide-idle-tree-items{
+
+    .generate-shading(@ratio) {
+        .directory .header,
+        .entries .directory .header,
+        .list-tree li {
+            color:fade(@entry-color, @ratio * 100%);
+        }
+
+        .list-tree li.open {
+            color:@text-color-highlight;
+        }
+
+        .list-tree .list-item:not(.open) .icon:before {
+            opacity: @ratio;
+        }
+
+        .generate-list-item-status-color(@color, @status) {
+            .directory.list-nested-item.status-@{status} > .header {
+                color: fade(@color, @ratio * 200%);
+            }
+            .list-tree {
+                li:not(.list-nested-item).status-@{status},
+                li.list-nested-item.status-@{status} > .list-item {
+                    color: fade(@color, @ratio * 200%);
+                }
+                li:not(.list-nested-item).selected.status-@{status},
+                li.list-nested-item.selected.status-@{status} > .list-item {
+                  color: @color;
+                }
+            }
+
+            .list-tree li.status-@{status} {
+                color: fade(@color, @ratio * 200%);
+            }
+            .list-tree li.open.status-@{status} {
+                color: @color;
+            }
+        }
+
+        .generate-list-item-status-color(@text-color-added,    added);
+        .generate-list-item-status-color(@text-color-ignored,  ignored);
+        .generate-list-item-status-color(@text-color-modified, modified);
+        .generate-list-item-status-color(@text-color-removed,  removed);
+        .generate-list-item-status-color(@text-color-renamed,  renamed);
+    }
+
+    .tree-view:not(:hover) {
+        .generate-shading(@nohover-ratio);
+    }
+    .tree-view:hover {
+        .generate-shading(@hover-ratio);
+    }
+
+}

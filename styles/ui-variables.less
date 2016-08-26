@@ -1,0 +1,141 @@
+@import "colors";
+
+@import 'custom-settings';
+
+// Base ------------------------------------------------------------------------
+@app-background-color: @bg-shade-two;
+
+@base-background-color: @bg-shade-two;
+@base-border-color:     @bg-shade-five;
+@base-selection-color:  @background-vvlight-dktn;
+// @base-selection-color:  @bg-shade-one;
+@base-input-color:      @bg-shade-one;
+
+@overlay-shadow-color: rgba(40, 45, 51, 0.02);
+@input-shadow-color:   rgba(40, 45, 51, 0.04);
+// @overlay-shadow-color: rgba(0, 0, 0, 0.2);
+// @input-shadow-color:   rgba(0, 0, 0, 0.4);
+
+// Text ------------------------------------------------------------------------
+// #b9b2a6 = lighten(#716858, 30%);
+// @text-color:           #b9b2a6;
+@text-color-subtle:    darken(@text-color, 20%);
+@text-color-highlight: lighten(@text-color, 5%);
+
+// @text-color:           red;  // @fg-shade-three;
+// @text-color-subtle:    cyan; // @fg-shade-one;
+// @text-color-highlight: pink; // @fg-shade-three;
+@text-color-selected:  @text-color-highlight;
+
+@text-color-info:    @color-info;
+@text-color-success: @color-success;
+@text-color-warning: @color-warning;
+@text-color-error:   @color-error;
+
+@text-color-ignored:  mix(@text-color, @background-dktn, 30%);
+// @text-color-ignored:  @text-color-subtle;
+@text-color-added:    @text-color-success;
+@text-color-renamed:  @text-color-info;
+@text-color-modified: @text-color-warning;
+@text-color-removed:  @text-color-error;
+
+// Background-------------------------------------------------------------------
+@background-color-info:      @color-info;
+@background-color-success:   @color-success;
+@background-color-warning:   @color-warning;
+@background-color-error:     @color-error;
+@background-color-highlight: @bg-shade-five;
+@background-color-selected:  @base-selection-color;
+
+@background-dktn:           shade(@theme-color, 75%); // #282d33, from 160 180 204
+@background-light-dktn:     shade(@theme-color, 72%);
+@background-vlight-dktn:    shade(@theme-color, 67%);
+@background-vlight2-dktn:   shade(@theme-color, 63%);
+@background-vvlight-dktn:   shade(@theme-color, 59%);
+@background-vvvlight-dktn:  lighten(@background-vvlight-dktn, 10%);
+@background-vvvvlight-dktn: lighten(@background-vvvlight-dktn, 10%);
+@text-color-dktn:           @text-color;
+@text-color-dark-dktn:      shade(@text-color-dktn, 30%);
+@text-color-vdark-dktn:     shade(@text-color-dktn, 50%);
+
+// Editor ----------------------------------------------------------------------
+// @indent-guide-color: @background-light-dktn;
+// @invisibles-color:   @background-light-dktn;
+
+@gutter-background-color: transparent;
+// @gutter-text-color:          @text-color-vdark-dktn;
+@gutter-text-color-selected: @text-color-selected;
+
+// Components ------------------------------------------------------------------
+@pane-item-background-color: @app-background-color;
+@pane-item-border-color:     @base-border-color;
+
+@input-background-color: @base-background-color;
+@input-border-color:     @base-border-color;
+
+@tool-panel-background-color: @background-vlight-dktn;
+// @tool-panel-background-color: @bg-shade-four;
+@tool-panel-border-color:     @bg-shade-five;
+
+@inset-panel-background-color: #161719;
+@inset-panel-border-color:     @base-border-color;
+
+@panel-heading-background-color: @app-background-color;
+@panel-heading-border-color:     fadein(@base-border-color, 10%);
+
+@overlay-background-color: @tool-panel-background-color;
+@overlay-border-color:     @base-border-color;
+@overlay-backdrop-color:   fade(@base-background-color, 64%);
+
+@button-background-color:          @bg-shade-one;
+@button-background-color-hover:    @background-color-highlight;
+@button-background-color-selected: @bg-shade-two;
+@button-border-color:              @base-border-color;
+
+@tab-bar-background-color:    @inactive-tab-color; //@background-dktn;
+@tab-bar-border-color:        @background-light-dktn;
+@tab-background-color:        @inactive-tab-color; //@background-vlight-dktn;
+@tab-background-color-active: @background-dktn;
+@tab-background-color-hover:  mix(@tab-background-color, @tab-background-color-active, 50%);
+@tab-border-color:            transparent;
+
+@tree-view-background-color: @background-dktn;
+@tree-view-border-color:     @base-border-color;
+
+@scrollbar-background-color:        @background-dktn; // Needs to be opaque
+@scrollbar-color:                   @background-light-dktn;
+@scrollbar-background-color-editor: fadein(@scrollbar-background-color, 10%);
+@scrollbar-color-editor:            fadein(@scrollbar-color, 10%);
+
+@tooltip-text-color:           @text-color-highlight;
+@tooltip-background-color:     @background-color-highlight;
+@tooltip-text-key-color:       @base-background-color;
+@tooltip-background-key-color: @background-color-info;
+
+@ui-site-color-1: @background-color-success; // green
+@ui-site-color-2: @background-color-info; // blue
+@ui-site-color-3: @background-color-warning; // orange
+@ui-site-color-4: mix(@color-error, @color-info, 50%); // purple
+@ui-site-color-5: mix(@color-error, @color-success, 50%); // yellow
+
+
+// Sizes -----------------------------------------------------------------------
+@font-size:       @tree-view-font-size;
+@input-font-size: 14px;
+
+@disclosure-arrow-size: 12px;
+
+@component-padding:       8px;
+@component-icon-padding:  4px;
+@component-icon-size:     16px;
+@component-line-height:   24px;
+@component-border-radius: 4px;
+
+// @tab-height: 28px;
+@tab-bar-height: @tab-height + @component-padding;
+
+// Other -----------------------------------------------------------------------
+@font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+@transition-time: 200ms;
+
+@white: rgba(255, 255, 255, 1);

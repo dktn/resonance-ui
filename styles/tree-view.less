@@ -1,0 +1,70 @@
+@import 'custom-settings';
+
+atom-workspace {
+  .tree-view-resizer {
+    background-color: @tree-view-background-color;
+    overflow: visible;
+  }
+
+  .tree-view {
+    // font-size:40%;
+    padding-left:   4px;
+    padding-right:  4px;
+    padding-top:    6px;
+    padding-bottom: 2px;
+    overflow: visible;
+    // & .directory {
+    //   &::before {
+    //     display: none!important;
+    //   }
+    // }
+    // & > .directory {
+    //   & > .header {
+    //     line-height: @tab-height;
+    //     width: 100%;
+    //     height: @tab-height;
+    //     padding-top: @component-padding/2;
+    //     z-index: 2000;
+    //     font-weight: bold;
+    //     color: @text-color-highlight;
+    //     overflow: visible;
+    //     &::before {
+    //       visibility: hidden;
+    //     }
+    //   }
+    //   & > .entries {
+    //     padding-bottom: @component-padding;
+    //   }
+    // }
+    // & > .directory:not(:first-child) {
+    //   & > .header {
+    //     border-top: 1px solid @base-border-color;
+    //   }
+    // }
+    // &:not(:hover){
+    //     li{
+    //         &.collapsed, &.project-root > ol > .file > span{
+    //             opacity:0.30;
+    //         }
+    //     }
+    // }
+
+  }
+
+  .list-group li:not(.list-nested-item),
+  .list-tree li:not(.list-nested-item),
+  .list-group li.list-nested-item > .list-item,
+  .list-tree li.list-nested-item > .list-item {
+    line-height: @tree-view-line-height;
+  }
+  .list-group .selected:before,
+  .list-tree .selected:before {
+    height: @tree-view-line-height;
+  }
+  .list-tree.has-collapsable-children
+  .list-nested-item > .list-tree > li,
+  .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+    padding-left:8px;
+  }
+
+}

@@ -1,0 +1,23 @@
+{
+  "name": "resonance-ui",
+  "theme": "ui",
+  "main": "./lib/resonance-ui",
+  "version": "0.0.0",
+  "description": "A minimal, compact, distraction free interface.",
+  "author": {
+    "name": "Adam Szlachta"
+  },
+  "activationCommands": {
+    "atom-workspace": "resonance-ui:toggle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dktn/resonance-ui.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.1.0"
+  },
+  "readme": "# Resonance-UI package\nA minimal, compact, distraction free interface.\n\n![Resonance](https://raw.githubusercontent.com/dktn/resonance-ui/master/resonance-theme.png)\n",
+  "readmeFilename": "README.md"
+}

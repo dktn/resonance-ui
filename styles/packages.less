@@ -1,0 +1,91 @@
+// color-picker ----------------------------------------------------------------
+#ColorPicker {
+  background: @overlay-background-color !important;
+  border-radius: @component-border-radius;
+  .overlay-shadow();
+}
+
+.ColorPicker-picker {
+  background: @overlay-background-color !important;
+  border-radius: 0 0 @component-border-radius @component-border-radius !important;
+  box-shadow: 0 !important;
+}
+.ColorPicker-color {
+  border-radius: @component-border-radius @component-border-radius 0 0 !important;
+}
+.ColorPicker-saturationSelectorWrapper::after,
+.ColorPicker-alphaSelectorWrapper::after,
+.ColorPicker-hueSelectorWrapper::after {
+  border: 1px solid @base-border-color !important;
+}
+.is--pointer .ColorPicker-value:after {
+  color: @text-color;
+}
+
+// git-control -----------------------------------------------------------------
+.git-control {
+  .dialog {
+    background: @overlay-background-color;
+    .overlay-shadow();
+    -webkit-animation: overlay-show @transition-time;
+
+    @-webkit-keyframes overlay-show {
+      from {opacity: 0.0;}
+      to {opacity: 1.0;}
+    }
+  }
+
+  .icon.x:before, .icon.file-deleted:before {
+    content: '✕';
+  }
+}
+
+.git-control .dialog input, .git-control .dialog select, .git-control .dialog textarea {
+  color: @text-color;
+  background: @base-background-color;
+}
+
+// toolbar ---------------------------------------------------------------------
+#toolbar {
+  background-color: @tool-panel-background-color;
+  line-height: @tab-bar-height;
+  z-index: 1003;
+
+  &.top {
+    height: @tab-bar-height + 1;
+    position: relative;
+  }
+
+  &.right {
+    width: @tab-bar-height;
+    border-left: 0;
+  }
+
+  &.bottom {
+    height: @tab-bar-height;
+    border-top: 0;
+  }
+
+  &.left {
+    width: @tab-bar-height + 1;
+    border-right: 0;
+  }
+
+  &.horizontal {
+    .icon {
+      width: @tab-bar-height;
+    }
+  }
+
+  &.vertical {
+    .icon {
+      height: @tab-bar-height;
+    }
+  }
+
+  .icon {
+    &:before {
+      line-height: @tab-bar-height;
+    }
+  }
+}

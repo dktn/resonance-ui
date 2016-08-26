@@ -1,0 +1,37 @@
+atom-text-editor,
+atom-text-editor::shadow,
+html {
+    atom-text-editor-minimap {
+        &::shadow {
+            .minimap-visible-area {
+                background-color: @background-vlight-dktn;
+                // Color of Visible area.
+                opacity: 0.0;
+                // Default 0 when you not working with minimap
+                cursor: default;
+                // Change cursor style to pointer.
+                transition: 0.5s opacity;
+                // Better UI.
+                &:hover {
+                    opacity: 0.3;
+                } // Only display Minimap visible area when working.
+                &:active {
+                    cursor: default;
+                } // Change cursor when dragging.
+            }
+        }
+        &:hover::shadow {
+            .minimap-visible-area {
+                opacity: 0.3;
+                transition: opacity 1s;
+            } // When Hover to all minimap area, visible area will display.
+        }
+
+        &:active::shadow {
+            .minimap-visible-area {
+                opacity: 0.3;
+                transition: opacity 0.5s;
+            } // Display Minimap visible area when dragging.
+        }
+    }
+}

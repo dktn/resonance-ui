@@ -1,0 +1,46 @@
+// Buttons ---------------------------------------------------------------------
+.btn {
+  .button(@button-background-color, @button-background-color-hover, @button-background-color-selected);
+
+  &.btn-primary {
+    .button-variant(@background-color-info);
+  }
+  &.btn-info {
+    .button-variant(@background-color-info);
+  }
+  &.btn-success {
+    .button-variant(@background-color-success);
+  }
+  &.btn-warning {
+    .button-variant(@background-color-warning);
+  }
+  &.btn-error {
+    .button-variant(@background-color-error);
+  }
+  &.status-indicator {
+    border-width: 0 !important;
+  }
+}
+
+// Buttons and input in the 'Find and Replace' panel ---------------------------
+.find-and-replace .find-container,
+.find-and-replace .replace-container {
+
+    .input-block-item:first-child {
+      padding-right: 0 !important;
+    }
+    .input-block-item:last-child {
+      padding-left: 0;
+    }
+
+
+  & .btn-group:first-child .btn {
+    border-radius: 0 @component-border-radius @component-border-radius 0;
+    border-left: 1px solid @button-border-color;
+  }
+}
+
+.find-and-replace .find-container atom-text-editor[mini],
+.find-and-replace .replace-container atom-text-editor[mini], {
+  border-radius: @component-border-radius 0 0 @component-border-radius;
+}

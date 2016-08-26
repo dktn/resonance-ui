@@ -1,0 +1,19 @@
+@import "syntax-variables";
+
+@ui-text: @syntax-text-color;
+@ui-background: @syntax-background-color;
+@ui-selection: @syntax-selection-color;
+
+@color-info: @syntax-color-renamed;
+@color-success: @syntax-color-added;
+@color-warning: @syntax-color-modified;
+@color-error: @syntax-color-removed;
+
+@fg-shade-one: desaturate(mix(@ui-text, @ui-background, 48%), 12%);
+@fg-shade-two: desaturate(mix(@ui-text, @ui-background, 68%), 12%);
+@fg-shade-three: desaturate(@ui-text, 24%);
+
+@bg-shade-one: @ui-background;
+@bg-shade-two: mix(@ui-text, @ui-background, 8%);
+@bg-shade-four: desaturate(mix(@ui-text, @ui-background, 16%), 4%);
+@bg-shade-five: desaturate(mix(@ui-text, @ui-background, 24%), 4%);

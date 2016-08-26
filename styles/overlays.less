@@ -1,0 +1,135 @@
+atom-panel.modal {
+  .text(subtle);
+  position: absolute;
+  background-color: @overlay-background-color;
+  transition: all @transition-time*2;
+  -webkit-animation: show @transition-time*2;
+  @-webkit-keyframes show {
+    0% {opacity: 0.0; top: -100%;}
+    50% {opacity: 1.0; top: -100%;}
+    100% {opacity: 1.0; top: 0;}
+  }
+
+  atom-text-editor {
+    z-index: 1;
+  }
+
+  .select-list,
+  &.select-list {
+    box-shadow: 0 !important;
+  }
+  .select-list ol.list-group,
+  &.select-list ol.list-group {
+    background-color: @app-background-color;
+    border-radius: @component-border-radius;
+    position: relative;
+    z-index: 0;
+
+    &:empty {
+      border: none;
+      margin-top: 0;
+    }
+
+    li {
+      padding: 0 @component-padding;
+      width: 100%;
+      height: @component-line-height + @component-padding;
+      line-height: @component-line-height + @component-padding;
+      border-bottom: 1px solid @overlay-background-color;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+      & > * {
+        position: relative;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: @component-line-height + @component-padding - 1px;
+        line-height: @component-line-height + @component-padding;
+      }
+
+      &.two-lines {
+        height: @component-line-height*2 + @component-padding;
+        line-height: @component-line-height;
+        .text(subtle);
+        & > *:first-child {
+          .text(normal);
+        }
+        &:hover > *:first-child,
+        &.selected > *:first-child {
+          color: @text-color-highlight;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: @component-line-height*2 + @component-padding - 1px;
+          line-height: @component-line-height*2 + @component-padding;
+        }
+      }
+
+      .pull-right {
+        position: absolute;
+        right: 0;
+        padding-right: @component-padding * 2;
+      }
+      .status.icon {
+        float: right;
+        margin-left: @component-icon-padding;
+        &:before {
+          margin-right: 0;
+        }
+      }
+      &:not(.two-lines):hover,
+      &:not(.two-lines).selected {
+        color: @text-color-highlight;
+
+        .status.icon {
+          color: @text-color-selected;
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: @overlay-background-color;
+    border: 1px solid @overlay-border-color;
+    border-top: 0;
+    border-radius: 0 0 @component-border-radius @component-border-radius;
+    .overlay-shadow();
+  }
+
+  &::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background: @overlay-backdrop-color;
+    transition: all @transition-time;
+  }
+}
+
+//styleguide fix
+.styleguide {
+  atom-panel.modal::after {
+    position: relative;
+  }
+}

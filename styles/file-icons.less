@@ -1,0 +1,14 @@
+@import "../../file-icons/styles/colors";
+@import "../../file-icons/styles/icons";
+@import "../../file-icons/styles/items";
+
+// @{pane-tab-temp-selector},
+@{pane-tab-override},
+@{pane-tab-selector},
+.icon-file-text {
+  // Haskell
+  &[data-name$=".hs"]:before             { .haskell-icon;         .dark-green; }
+  &[data-name$=".hsc"]:before            { .haskell-icon;        .medium-blue; }
+  &[data-name$=".c2hs"]:before           { .haskell-icon;        .dark-purple; }
+  &[data-name$=".lhs"]:before            { .haskell-icon;          .dark-blue; }
+}

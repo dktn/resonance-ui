@@ -1,0 +1,111 @@
+@import 'custom-settings';
+
+* {
+  box-sizing: border-box;
+}
+
+atom-workspace {
+  background: @inactive-tab-color; // resize panels handle
+  // background: @tool-panel-background-color;
+  font-family: @font-family;
+
+  .item-views {
+    background: @base-background-color;
+  }
+}
+
+label {
+  .text(normal);
+}
+
+atom-notifications {
+  z-index: 4001;
+
+  atom-notification {
+    .close.icon::before {
+      content:'✕';
+    }
+  }
+}
+
+.key-binding {
+  .text(info);
+  color: @tooltip-text-key-color;
+  background: @tooltip-background-key-color;
+  display: inline-block;
+  height: @component-line-height*0.8;
+  line-height: @component-line-height*0.8;
+  border-radius: @component-border-radius/2;
+  font-size: @font-size*0.8;
+  padding: 0 @component-padding / 2;
+  margin-left: 2px;
+}
+
+.icon-x::before {
+  content: '✕' !important;
+}
+
+atom-pane-container atom-pane .item-views {
+  background: @app-background-color;
+}
+
+.background-message * {
+  color: @overlay-shadow-color;
+  font-size: 24px;
+}
+
+.badge {
+  background: @background-color-highlight;
+}
+
+//
+// ::-webkit-scrollbar {
+//     display: none;
+// }
+
+.scrollbars-visible-always {
+	/deep/ ::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+
+	/deep/ ::-webkit-scrollbar-track {
+		background: @scrollbar-background-color;
+	}
+
+	/deep/ ::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		border: 3px solid @scrollbar-background-color;
+		background: @scrollbar-color;
+		background-clip: content-box;
+	}
+
+	/deep/ ::-webkit-scrollbar-corner {
+		background: @scrollbar-background-color;
+	}
+
+	/deep/ ::-webkit-scrollbar-thumb:vertical:active {
+		border-radius: 0;
+		border-left-width: 0;
+		border-right-width: 0;
+	}
+
+	/deep/ ::-webkit-scrollbar-thumb:horizontal:active {
+		border-radius: 0;
+		border-top-width: 0;
+		border-bottom-width: 0;
+	}
+
+	atom-text-editor {
+		/deep/ ::-webkit-scrollbar-track {
+			background: @scrollbar-background-color-editor;
+		}
+		/deep/ ::-webkit-scrollbar-corner {
+			background: @scrollbar-background-color-editor;
+		}
+		/deep/ ::-webkit-scrollbar-thumb {
+			border-color: @scrollbar-background-color-editor;
+			background: @scrollbar-color-editor;
+		}
+	}
+}
