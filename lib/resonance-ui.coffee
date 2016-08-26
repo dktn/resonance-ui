@@ -137,6 +137,7 @@ module.exports =
         @subscriptions.add atom.workspace.onDidAddTextEditor treeListAddOpen
         @subscriptions.add atom.workspace.onDidDestroyPaneItem treeListRemoveOpen
         @subscriptions.add atom.workspace.onDidChangeActivePane treeListAddOpenForCurrent
+        @subscriptions.add atom.project.onDidChangePaths treeListUpdateOpen
 
         atom.packages.activatePackage('tree-view').then (treeViewPkg) =>
             @treeView = treeViewPkg.mainModule.createView()
