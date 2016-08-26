@@ -2,7 +2,7 @@
   "name": "resonance-ui",
   "theme": "ui",
   "main": "./lib/resonance-ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A minimal, compact, distraction free interface.",
   "author": {
     "name": "Adam Szlachta"
