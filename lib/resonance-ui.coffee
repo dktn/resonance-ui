@@ -1,5 +1,4 @@
 {CompositeDisposable} = require 'atom'
-{TextEditor} = require 'atom'
 Options = require './options'
 
 module.exports =
@@ -125,7 +124,7 @@ module.exports =
 
     treeListRemoveOpen = (event) =>
       console.log "Resonance-UI: treeListRemoveOpen", @treeView
-      if @treeView and event.item instanceof TextEditor
+      if @treeView and atom.workspace.isTextEditor event.item
         closingEditor = event.item
         closingFilePath = closingEditor.getPath()
         editors = atom.workspace.getTextEditors()
