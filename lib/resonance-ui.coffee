@@ -4,6 +4,7 @@ Options = require './options'
 module.exports =
 
   treeView: null
+  revealActiveFileOriginal: null
 
   config:
     colors:
@@ -134,6 +135,7 @@ module.exports =
         removeOpen closingEditor
 
     treeListUpdateOpen = () =>
+      console.log "Resonance-UI: treeListUpdateOpen", @treeView
       if @treeView
         editors = atom.workspace.getTextEditors()
         for i in [0...editors.length]
@@ -151,9 +153,13 @@ module.exports =
     atom.packages.activatePackage('tree-view').then (treeViewPkg) =>
       console.log "Resonance-UI: activatePackage tree-view"
       @treeView = treeViewPkg.mainModule.createView()
+      @revealActiveFileOriginal = @treeView.revealActiveFile
       treeListUpdateOpen()
       @treeView.on 'click', '.directory', () ->
         treeListUpdateOpen()
+      @treeView.revealActiveFile = () =>
+        @revealActiveFileOriginal.call @treeView
+        treeListAddOpenForCurrent()
     Options.apply()
 
   deactivate: () ->
