@@ -1,3 +1,12 @@
+## 0.10.0
+* Highlight open file on tree view after revealing active file
+
+## 0.9.0
+* Fix broken custom imports
+
+## 0.8.0
+* Update to newer atom API
+
 ## 0.7.0
 * Fix broken package when file-icons package is not present
 * Option to enable file-icons patch (compact icons)
