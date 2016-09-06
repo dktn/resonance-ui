@@ -1,3 +1,8 @@
+## 0.11.0
+* Fixed stack overflow when changing theme back to Resonance again
+* Fixed incorrect tree view behavior when project is selected and a file opened using fuzzy finder
+* Better handling highlighting on file reveal
+
 ## 0.10.0
 * Highlight open file on tree view after revealing active file
 
