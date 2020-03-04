@@ -1,7 +1,7 @@
 @import 'custom-settings';
 
 atom-text-editor[mini],
-atom-text-editor[mini]::shadow {
+atom-text-editor[mini].editor {
   background-color: @base-input-color;
   border-radius: @component-border-radius;
   height: @component-line-height;
@@ -22,7 +22,7 @@ atom-text-editor[mini]::shadow {
 @gutter-color-removed:  shade(@text-color-removed,  @gutter-color-dim);
 
 atom-text-editor,
-atom-text-editor::shadow,
+atom-text-editor.editor,
 :host {
   .scroll-view {
     padding: 0;
